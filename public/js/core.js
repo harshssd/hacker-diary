@@ -3,15 +3,18 @@ var hackers = angular.module('hackers', [
 'mainController', 'userController'
 ]);
 
-hackers.config(function($routeProvider){
+hackers.config(function($routeProvider, $locationProvider){
 
     $routeProvider
         .when('/', {
-            templateUrl: 'partials/home.html',
+            templateUrl: 'views/home.html',
             controller: 'mainController'
         })
         .when('/login', {
-            templateUrl: 'partials/login.html',
+            templateUrl: 'views/login.html',
             controller: 'userController'
         });
+    
+    $locationProvider.html5Mode(true);    
+    
     });
