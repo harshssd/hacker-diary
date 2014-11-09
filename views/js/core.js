@@ -7,11 +7,11 @@ hackers.config(function($routeProvider, $locationProvider){
 
     $routeProvider
         .when('/', {
-            templateUrl: 'views/home.html',
+            templateUrl: 'partials/repos.html',
             controller: 'mainController'
-        })
+        });
         .when('/login', {
-            templateUrl: 'views/login.html',
+            templateUrl: 'partials/empty.html',
             controller: 'userController'
         });
     

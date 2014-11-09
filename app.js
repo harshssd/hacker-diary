@@ -11,6 +11,7 @@ var ejs = require('ejs');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 var passportGithub = require('passport-github');
+var passportFacebook = require('passport-facebook');
 var flash = require('connect-flash');
 var bcrypt = require('bcrypt-nodejs');
 

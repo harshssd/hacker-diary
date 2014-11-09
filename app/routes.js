@@ -52,7 +52,37 @@ module.exports = function(app, passport) {
             user : req.user // get the user out of session and pass to template
         });
     });
+    
+    // =====================================
+    // FACEBOOK ROUTES =====================
+    // =====================================
+    // route for facebook authentication and login
+    app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 
+    // handle the callback after facebook has authenticated the user
+    app.get('/auth/facebook/callback',
+        passport.authenticate('facebook', {
+            successRedirect : '/profile',
+            failureRedirect : '/'
+        }));    
+
+    // =====================================
+    // FACEBOOK ROUTES =====================
+    // =====================================
+    // route for github authentication and login
+    app.get('/auth/github', passport.authenticate('github')); //, { scope : 'email' }
+
+    // handle the callback after github has authenticated the user
+    app.get('/auth/github/callback',
+        passport.authenticate('github', {
+            successRedirect : '/profile',
+            failureRedirect : '/'
+        }));
+    
+    app.get('/github', function(req, res){
+        res.sendfile('views/github.html'); 
+    });
+    
     // =====================================
     // LOGOUT ==============================
     // =====================================
